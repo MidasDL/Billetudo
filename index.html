@@ -1,4 +1,4 @@
-<div>Teachable Machine Image Model</div>
+<div>Lector de Billetes (Versión 0.1)</div>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -26,9 +26,10 @@
         maxPredictions = model.getTotalClasses();
 
         // Convenience function to setup a webcam
+
         const flip = true; // whether to flip the webcam
         webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
+        await webcam.setup({ facingMode: "environment" }); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
 
